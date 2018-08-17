@@ -32,7 +32,23 @@ var _https = require('https');
 var _https2 = _interopRequireDefault(_https);
 
 var _axios2 = _interopRequireDefault(_axios);
-//_axios2.default.defaults.timeout = 6000;
+_axios2.default.defaults.timeout = 6000;
+
+_axios2.default.interceptors.request.use(function (config) {
+    config.requestTime = new Date().getTime();
+    return config;
+}, function (err) {
+    return Promise.reject(err);
+});
+
+_axios2.default.interceptors.response.use(function (res) {
+    logger.logService({}, res.config, res, res.request.connection);
+    return res;
+}, function (err) {
+    logger.logService(err, err.config, {}, err.request.connection);
+    return Promise.reject(err);
+});
+
 app.set('port', process.env.PORT || 5000);
 app.use(body_parser.json());
 app.use(express.static('public'));
@@ -78,7 +94,7 @@ async function testRes(req,res){
   var randomNumber = Math.floor(Math.random() * 1000000 + 1).toString();
   //header['x-api-request-id'] = "QWlzQEFvZy1ham9pYWRwd2Vpdm5wT2g5U0xrZFZKdzYwSkZjOXBpd2VqdmIycG93bg==";
   header['x-api-request-id'] = 'self-' + new Date().getTime() + randomNumber;
-  var response = await _axios.post('https://dev-askaunjai.ais.co.th:8443/social-adapter-fe/chatbot', {
+  var response = await _axios2.post('https://dev-askaunjai.ais.co.th:8443/social-adapter-fe/chatbot', {
     httpsAgent: agent,
     headers: header
    },body)
