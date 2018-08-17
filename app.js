@@ -204,7 +204,7 @@ function processQueue() {
     });
 }
 
-queueRequest("test";
+queueRequest("test");
 queueRequest(/* Message 2 */);
 queueRequest(/* Message 3 */);
 // Sends response messages via the Send API
