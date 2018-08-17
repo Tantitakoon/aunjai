@@ -99,7 +99,7 @@ async function testRes(req,res){
     headers: header
    })
    console.log(JSON.stringify(response['data']));
-   res.JSON(response['data']);
+   res.json(response['data']);
 } 
 // Handle postback from webview
 app.get('/optionspostback', (req, res) => {
