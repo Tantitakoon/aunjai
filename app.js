@@ -178,7 +178,35 @@ function setRoomPreferences(sender_psid) {
 
     return response;
 }
+var queue = [];
+var queueProcessing = false;
 
+function queueRequest(request) {
+    queue.push(request);
+    if (queueProcessing) {
+        return;
+    }
+    queueProcessing = true;
+    processQueue();
+}
+
+function processQueue() {
+    if (queue.length == 0) {
+        queueProcessing = false;
+        return;
+    }
+    var currentRequest = queue.shift();
+    request(currentRequest, function(error, response, body) {
+        if (error || response.body.error) {
+            console.log("Error sending messages!");
+        }
+        processQueue();
+    });
+}
+
+queueRequest("test";
+queueRequest(/* Message 2 */);
+queueRequest(/* Message 3 */);
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
     // Construct the message body
