@@ -202,7 +202,7 @@ async function handleMessage(sender_psid, received_message) {
               });
                 console.log(JSON.stringify(resApi['data']['data']['message'][0]));
                 response = {
-                    "text": `You sent the message: "${resApi['data']['data']['message'][0]}".`
+                    "text": `${resApi['data']['data']['message'][0]}.`
                 };
                 break;
         }
