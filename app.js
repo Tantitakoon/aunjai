@@ -45,7 +45,7 @@ _axios2.default.interceptors.response.use(function (res) {
    // logger.logService({}, res.config, res, res.request.connection);
     return res;
 }, function (err) {
-  //  logger.logService(err, err.config, {}, err.request.connection);
+    //logger.logService(err, err.config, {}, err.request.connection);
     return Promise.reject(err);
 });
 
@@ -94,10 +94,10 @@ async function testRes(req,res){
   var randomNumber = Math.floor(Math.random() * 1000000 + 1).toString();
   //header['x-api-request-id'] = "QWlzQEFvZy1ham9pYWRwd2Vpdm5wT2g5U0xrZFZKdzYwSkZjOXBpd2VqdmIycG93bg==";
   header['x-api-request-id'] = 'self-' + new Date().getTime() + randomNumber;
-  var response = await _axios2.default.post('https://dev-askaunjai.ais.co.th:8443/social-adapter-fe/chatbot', {
+  var response = await _axios2.default.post('https://dev-askaunjai.ais.co.th:8443/social-adapter-fe/chatbot', body,{
     httpsAgent: agent,
     headers: header
-   },body)
+   })
    console.log(JSON.stringify(response['data']));
    res.JSON(response['data']);
 } 
