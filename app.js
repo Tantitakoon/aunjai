@@ -84,7 +84,7 @@ async function testRes(req,res){
     term: "เช็คยอดเงิน",
     intent: "display",
     method: "message",
-    timeout: 1000,
+    timeout: 10000,
     userId:  "111111111111111111111111111"
   };
   var agent = new _https2.default.Agent({
