@@ -42,10 +42,10 @@ _axios2.default.interceptors.request.use(function (config) {
 });
 
 _axios2.default.interceptors.response.use(function (res) {
-    logger.logService({}, res.config, res, res.request.connection);
+   // logger.logService({}, res.config, res, res.request.connection);
     return res;
 }, function (err) {
-    logger.logService(err, err.config, {}, err.request.connection);
+  //  logger.logService(err, err.config, {}, err.request.connection);
     return Promise.reject(err);
 });
 
