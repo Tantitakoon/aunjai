@@ -181,7 +181,7 @@ function setRoomPreferences(sender_psid) {
 function handlePostback(sender_psid,receivedPostback){ 
   if (payload == 'defined_payload') {
     response = {
-      text: "test"
+      "text": `Good Morning`
     };
   callSendAPI(sender_psid,response).then(() => {
 
