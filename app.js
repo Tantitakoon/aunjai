@@ -143,7 +143,7 @@ function handleMessage(sender_psid, received_message) {
                 break;
             default:
                 response = {
-                    no
+                    "text": `You sent the message: "${received_message.text}".`
                 };
                 break;
         }
