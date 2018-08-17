@@ -60,9 +60,7 @@ app.get('/options', (req, res, next) => {
     }
 });
 
-app.get('/test',(req,res)=>{
-
-});
+app.get('/test',testRes);
 
 async function testRes(req,res){
  var body ={
@@ -84,6 +82,8 @@ async function testRes(req,res){
     httpsAgent: agent,
     headers: header
    },body)
+   console.log(JSON.stringify(response['data']));
+   res.JSON(response['data']);
 } 
 // Handle postback from webview
 app.get('/optionspostback', (req, res) => {
