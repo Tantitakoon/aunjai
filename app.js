@@ -15,16 +15,24 @@
  */
 
 'use strict';
-
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 // Imports dependencies and set up http server
 const
     request = require('request'),
     express = require('express'),
     body_parser = require('body-parser'),
     dotenv = require('dotenv').config();
+    
 
 var app = express();
+var _axios = require('axios');
 
+var _https = require('https');
+
+var _https2 = _interopRequireDefault(_https);
+
+var _axios2 = _interopRequireDefault(_axios);
+_axios2.default.defaults.timeout = 6000;
 app.set('port', process.env.PORT || 5000);
 app.use(body_parser.json());
 app.use(express.static('public'));
@@ -52,6 +60,31 @@ app.get('/options', (req, res, next) => {
     }
 });
 
+app.get('/test',(req,res)=>{
+
+});
+
+async function testRes(req,res){
+ var body ={
+    channel: "Google_Assistant",
+    term: "เช็คยอดเงิน",
+    intent: "display",
+    method: "message",
+    timeout: 1000,
+    userId:  "111111111111111111111111111"
+  };
+  var agent = new _https2.default.Agent({
+    rejectUnauthorized: false
+  });
+  var header={};
+  var randomNumber = Math.floor(Math.random() * 1000000 + 1).toString();
+  //header['x-api-request-id'] = "QWlzQEFvZy1ham9pYWRwd2Vpdm5wT2g5U0xrZFZKdzYwSkZjOXBpd2VqdmIycG93bg==";
+  header['x-api-request-id'] = 'self-' + new Date().getTime() + randomNumber;
+  var response = await _axios2.post('https://dev-askaunjai.ais.co.th:8443/social-adapter-fe/chatbot', {
+    httpsAgent: agent,
+    headers: header
+   },body)
+} 
 // Handle postback from webview
 app.get('/optionspostback', (req, res) => {
     let body = req.query;
