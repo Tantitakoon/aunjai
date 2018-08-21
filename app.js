@@ -246,6 +246,7 @@ function getHeader(){
 
 // Define the template and webview
 function setRoomPreferences(sender_psid) {
+    console.log("===set Room===");
     let response = {
         attachment: {
             type: "template",
