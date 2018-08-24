@@ -208,6 +208,7 @@ var Express = function () {
           if (_constants.ENV.SAVE_LOG) {
                 this.setLoging();
             }
+               console.log("AAAAAAAAAAAAAAAAAAAAAa");
             this.getCpid();
             this.getPlanStatus();
             this.getPlanOffer();
