@@ -257,12 +257,12 @@ var Express = function () {
                     credentials.ca = certificateAuthority;
                 }
             //
-                _https2.default.createServer(credentials, this.express).listen(process.env.PORT||_constants.ENV.APP_PORT, function () {
+                _https2.default.createServer(credentials, this.express).listen(_constants.ENV.APP_PORT, function () {
                   
                     return console.info('server started on port ' + _constants.ENV.APP_PORT + ' (' + _constants.ENV.ENV + ')');
                 });
             } else {
-                this.express.listen(process.env.PORT||_constants.ENV.APP_PORT, function () {
+                this.express.listen(_constants.ENV.APP_PORT, function () {
                     return console.info('server started on port ' + _constants.ENV.APP_PORT + ' (' + _constants.ENV.ENV + ')');
                 });
              
