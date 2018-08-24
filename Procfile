@@ -1,1 +1,1 @@
-web: npm run mdp
+web: npm run start
