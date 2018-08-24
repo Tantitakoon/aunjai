@@ -12,8 +12,7 @@
     },
 
   "scripts": {
-         "precommit": "yarn lint",
-        "prestart": "yarn docs",
+       
         "start": "pm2 start pm2-dev.json",
         "build": "babel src -d dist --copy-files",
         "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
