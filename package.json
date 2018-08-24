@@ -14,7 +14,6 @@
   "scripts": {
        
         "start": "pm2 start pm2-dev.json",
-        "dev": "nodemon ./src/index.js --exec babel-node --presets es2015",
         "build": "babel src -d dist --copy-files",
         "lint": "eslint **/*.js --ignore-path .gitignore --ignore-pattern internals/scripts",
         "lint:fix": "yarn lint -- --fix",
