@@ -99,7 +99,7 @@ var Express = function () {
         value: function ReceiveRequest() {
             // route to dialogflow
             this.express.post('/webhook', function (req, res, next) {
-                       
+                       console.log("AAAAAAAAAAAAAAAAAAAAAa");
             let body = req.body;
             if (body.object === 'page') {
 
