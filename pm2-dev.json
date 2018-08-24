@@ -11,9 +11,9 @@
                 "workerInterval": 10,
                 "rotateInterval": "*/60 * * * *",
         "rotateModule": true,
-        "error_file": "D:/app/GL-ASSIST/pm2_logs/error.log",
-        "out_file": "D:/app/GL-ASSIST/pm2_logs/out.log",
-        "pid_file": "D:/app/GL-ASSIST/pm2_logs/pid.log",
+        "error_file": "/app/GL-ASSIST/pm2_logs/error.log",
+        "out_file": "/app/GL-ASSIST/pm2_logs/out.log",
+        "pid_file": "/app/GL-ASSIST/pm2_logs/pid.log",
         "env": {
             "NODE_ENV": "production",
             "APP_HOST": "0.0.0.0",
