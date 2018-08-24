@@ -259,7 +259,7 @@ var Express = function () {
                     credentials.ca = certificateAuthority;
                 }
             //
-                _http.default.createServer(this.express).listen(process.env.PORT||_constants.ENV.APP_PORT, function () {
+                _http.createServer(this.express).listen(process.env.PORT||_constants.ENV.APP_PORT, function () {
                   
                     return console.info('server started on port ' + _constants.ENV.APP_PORT + ' (' + _constants.ENV.ENV + ')');
                 });
