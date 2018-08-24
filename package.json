@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "Service API for Actions on Google with Dialogflow",
     "author": "",
-    "main": "src/index.js",
+    "main": "./src/index.js",
     "private": false,
     "license": "MIT",
     "engines": {
