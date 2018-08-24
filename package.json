@@ -30,7 +30,7 @@
         "postpublish": "git push --tags",
         "deploy": "sh ./deploy.sh",
         "deploy:pm2": "sh ./deploy-pm2.sh",
-        //"docs": "apidoc -i src -o docs",
+       
         "postdocs": "opn docs/index.html",
         "docker:start": "cross-env NODE_ENV=production pm2-docker start ./src/index.js",
         "docker:prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up",
@@ -104,7 +104,7 @@
         "winston-logrotate": "^1.3.0"
     },
     "devDependencies": {
-        //"apidoc": "^0.17.5",
+       
         "babel-cli": "^6.26.0",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
