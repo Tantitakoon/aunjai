@@ -28,6 +28,8 @@ var _https2 = _interopRequireDefault(_https);
 
 var _fs = require('fs');
 
+var _http = require('http');
+
 var _fs2 = _interopRequireDefault(_fs);
 
 var _ejs = require('ejs');
@@ -249,15 +251,15 @@ var Express = function () {
             this.ReceiveRequestGet();
             this.ReceiveRequestPost();
             if (_constants.ENV.ENV === 'production' && _constants.ENV.USE_HTTPS === true) {
-                var privateKey = _fs2.default.readFileSync(_constants.ENV.SSL_KEY, 'utf8').toString();
-                var certificate = _fs2.default.readFileSync(_constants.ENV.SSL_CERT, 'utf8').toString();
+               // var privateKey = _fs2.default.readFileSync(_constants.ENV.SSL_KEY, 'utf8').toString();
+                //var certificate = _fs2.default.readFileSync(_constants.ENV.SSL_CERT, 'utf8').toString();
                 var credentials = { key: privateKey, cert: certificate };
                 if (_fs2.default.existsSync(_constants.ENV.SSL_CA)) {
                     var certificateAuthority = _fs2.default.readFileSync(_constants.ENV.SSL_CA, 'utf8').toString();
                     credentials.ca = certificateAuthority;
                 }
             //
-                _https2.default.createServer(credentials, this.express).listen(process.env.PORT||_constants.ENV.APP_PORT, function () {
+                _http.default.createServer(this.express).listen(process.env.PORT||_constants.ENV.APP_PORT, function () {
                   
                     return console.info('server started on port ' + _constants.ENV.APP_PORT + ' (' + _constants.ENV.ENV + ')');
                 });
