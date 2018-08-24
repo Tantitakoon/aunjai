@@ -10,3 +10,4 @@ function _interopRequireDefault(obj) {
 }
 
 _server2.default.bootstrap();
+console.log("bootstap");
