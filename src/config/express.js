@@ -124,17 +124,17 @@ var Express = function () {
     },  {
         key: 'ReceiveRequestGet',
         value: function ReceiveRequestGet() {
-             console.log("webhook_GET");
+            // console.log("webhook_GET");
             // route to dialogflow
              this.express.get('/webhook', (req, res) => {
-
-            const VERIFY_TOKEN = process.env.TOKEN;
+                        res.sendStatus(200);
+            //const VERIFY_TOKEN = process.env.TOKEN;
 
             // Parse params from the webhook verification request
-            let mode = req.query['hub.mode'];
+            /*let mode = req.query['hub.mode'];
             let token = req.query['hub.verify_token'];
             let challenge = req.query['hub.challenge'];
-
+            res.send("Hello");
             // Check if a token and mode were sent
             if (mode && token) {
 
@@ -149,7 +149,7 @@ var Express = function () {
                     // Responds with '403 Forbidden' if verify tokens do not match
                     res.sendStatus(403);
                 }
-            }
+            }*/
           });
         }
     },{
@@ -246,6 +246,8 @@ var Express = function () {
             this.getEligibility();
             this.getRegister();
             this.getDpaStatus();
+            this.ReceiveRequestGet();
+            this.ReceiveRequestPost();
             if (_constants.ENV.ENV === 'production' && _constants.ENV.USE_HTTPS === true) {
                 var privateKey = _fs2.default.readFileSync(_constants.ENV.SSL_KEY, 'utf8').toString();
                 var certificate = _fs2.default.readFileSync(_constants.ENV.SSL_CERT, 'utf8').toString();
